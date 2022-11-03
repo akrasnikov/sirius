@@ -1,0 +1,43 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Authors>Fuji Nguyen</Authors>
+    <Company>workcontrolgit</Company>
+    <RepositoryUrl>https://github.com/workcontrolgit</RepositoryUrl>
+    <RepositoryType>Public</RepositoryType>
+    <PackageProjectUrl>https://github.com/workcontrolgit</PackageProjectUrl>
+    <Version>1.3.0</Version>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>Traceiq.Distribution.WebApi.xml</DocumentationFile>
+    <NoWarn>1701;1702;1591</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Services\**" />
+    <Content Remove="Services\**" />
+    <EmbeddedResource Remove="Services\**" />
+    <None Remove="Services\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="IdentityServer4.AccessTokenValidation" Version="3.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="4.2.0" />
+    <PackageReference Include="Microsoft.Extensions.PlatformAbstractions" Version="1.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.3.1" />
+    <PackageReference Include="Serilog.AspNetCore" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\ProjectName.ServiceName.Application\ProjectName.ServiceName.Application.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Projectname.Infrastructure.Shared\Projectname.Infrastructure.Shared.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Projectname.ServiceName.Infrastructure.Persistence\Projectname.ServiceName.Infrastructure.Persistence.csproj" />
+    <ProjectReference Include="..\Projectname.ServiceName.Infrastructure.Persistence\Projectname.ServiceName.Infrastructure.Persistence.csproj" />
+    <ProjectReference Include="..\Projectname.Infrastructure.Shared\Projectname.Infrastructure.Shared.csproj" />
+    <ProjectReference Include="..\Projectname.Auth.Application\Projectname.Auth.Application.csproj" />
+  </ItemGroup>
+
+</Project>
